@@ -1,28 +1,62 @@
-# base-teste
-Repositório para testes dos candidatos 2019
+## teste_rest
+Esta é uma Aplicação PHP 7.3.11 com Laravel 2.2.0 (Composer 1.9.1)
 
 
-## Teste
-Desenvolva uma aplicação PHP 7+ utilizando o framework Laravel para resolver o seguinte problema:
+## Para levantar esta aplicação
+Baixe a pasta "<b>teste_rest</b>" para o seu diretório de soluções PHP.
+
+No seu MySQL Administrator, crie uma base da dados e um usuário conforme os  parametros indicados na pagina ".env".
+
+DB_CONNECTION=mysql<br>
+DB_HOST=127.0.0.1<br>
+DB_PORT=3306<br>
+DB_DATABASE=administrator<br>
+DB_USERNAME=base<br>
+DB_PASSWORD=segredo<br>
 
 
-Uma administradora de imóveis precisa realizar o cadastro dos imóveis que ela administra. Os dados que ela gostaria de guardar são:
+Em seguida, execute: <b>php artisan migrate</b> para serem criadas as tabelas do DB.
 
-- Endereço do imóvel
-- Bairro
-- Municipio
-- Estado
-- CEP ( Deve validar o padrão 00000-000 )
-- Tipo do Imóvel ( Apartamento, Casa, Sítio, Andar )
-- Nome do Proprietário
+Com as tabelas criadas, execute: <b>php artisan db:seed</b> para que a tabela "properties" seja populada randomicamente.
+
+Execute o comando: <b>php artisan serve</b> para levantar a aplicação.
+
+No navegador, vá em <b>http://localhost:8000/api/properties</b> para visualizar os dados da base, <b>paginados de 10 em 10 itens</b>.
+
+Acrescentando-se à URL o sufixo "<b>?district=<seu_texto_filtro></b>" filtramos a pesquisa apenas com os Bairros iguais ao <seu_texto_filtro>.
+
+Acrescentando-se à URL o sufixo "<b>?municipio=<seu_texto_filtro></b>" filtramos a pesquisa apenas com os Municípios iguais ao <seu_texto_filtro>.
+
+Acrescentando-se à URL o sufixo "<b>?page=3</b>" traremos apenas os itens da página 3, e assim sucessivamente.
+
+Acrescentando-se à URL o sufixo "<b>?sort=asc</b>" traremos os itens ordenados por Bairro e Município, de forma crescente e se "<b>?sort=desc</b>", os itens virão ordenados por Bairro e Município, de forma decrescente.
+
+Todos os filtros funcionaram de forma conjunta, acrescentando-se "<b>&</b>" entre eles.
 
 
-Para isso, utilize o banco de dados MySQL e crie um **CRUD** utilizando **API REST**. Deve ser possível pesquisar todos os imóveis de um municipio ou bairro. Deve ser possível também paginar e ordenar a lista de imóveis por bairro e município (**não é necessário criar o front das telas**, somente back com retorno em **JSON**).
+## Realizando o CRUD
+Com a ajuda do POSTMAN, conseguimos vizualizar que a URL http://localhost:8000/api/properties/, em <b>POST</b>, e com os seguintes parametros, insere dados na Base e nos trazem a mensagem de "<b>Imóvel criado com sucesso ! </b>"<br>
+<img src="create.png" alt="Create">
 
 
-**OBS:** É importante descrever como levantar seu projeto. Arquivos compactados (zip ou rar) no pull request serão desconsiderados.
+
+Com a URL <b>http://localhost:8000/api/properties/23</b>, em <b>GET</b>, visualizamos os dados do ID=23.<br>
+<img src="read.png" alt="Read">
+ 
+ 
+
+Com a URL <b>http://localhost:8000/api/properties/35</b>, em <b>PUT</b>, editamos os parametros selecionados e recebemos a mensagem resposta "<b>Imóvel atualizado com sucesso !</b>"<br>
+<img src="edit.png" alt="UpDate">
+ 
 
 
-Faça um **FORK** deste projeto e quando terminar faça um **PULL REQUEST** para avaliarmos seu teste.
+Com a URL <b>http://localhost:8000/api/properties/9</b>, em <b>DELETE</b>, conseguimo excluir, do banco, a linha com ID = 9, e recebemos a mensagem resposta "<b>Imóvel no Endereço: 58259 Goldner Circles Apt. 742\nBartolettiview, PA 37373-8350 foi removido com sucesso !</b>"<br>
+<img src="delete.png" alt="Delete">
+ 
 
-Boa sorte!
+
+
+Obrigado!
+
+Marcio Cunha
+(21)9 8662-2088

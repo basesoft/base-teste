@@ -35,18 +35,23 @@ Todos os filtros funcionaram de forma conjunta, acrescentando-se "&" entre eles.
 
 
 ## Realizando o CRUD
-Com a ajuda do POSTMAN, conseguimos vizualizar que a URL http://localhost:8000/api/properties/, em POST, e com os seguintes parametros, insere dados na Base e nos trazem a mensagem de "Imóvel criado com sucesso ! "
+Com a ajuda do POSTMAN, conseguimos vizualizar que a URL http://localhost:8000/api/properties/, em POST, e com os seguintes parametros, insere dados na Base e nos trazem a mensagem de "Imóvel criado com sucesso ! "<br>
+<img src="create.png" alt="Create">
 
+
+
+Com a URL http://localhost:8000/api/properties/23, em GET, visualizamos os dados do ID=23.<br>
+<img src="read.png" alt="Read">
+ 
+ 
+
+Com a URL http://localhost:8000/api/properties/35, em PUT, editamos os parametros selecionados e recebemos a mensagem resposta "Imóvel atualizado com sucesso !"<br>
+<img src="edit.png" alt="UpDate">
  
 
 
-Com a URL http://localhost:8000/api/properties/23, em GET, visualizamos os dados do ID=23.
- 
-
-Com a URL http://localhost:8000/api/properties/35, em PUT, editamos os parametros selecionados e recebemos a mensagem resposta "Imóvel atualizado com sucesso !"
- 
-
-Com a URL http://localhost:8000/api/properties/9, em DELETE, conseguimo excluir, do banco, a linha com ID = 9, e recebemos a mensagem resposta "Imóvel no Endereço: 58259 Goldner Circles Apt. 742\nBartolettiview, PA 37373-8350 foi removido com sucesso !"
+Com a URL http://localhost:8000/api/properties/9, em DELETE, conseguimo excluir, do banco, a linha com ID = 9, e recebemos a mensagem resposta "Imóvel no Endereço: 58259 Goldner Circles Apt. 742\nBartolettiview, PA 37373-8350 foi removido com sucesso !"<br>
+<img src="delete.png" alt="Delete">
  
 
 
